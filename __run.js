@@ -5,7 +5,7 @@ import { extension, stylesHint, variablesHint } from "./stuff.js";
 
 /** @type {import("../..").AdderRun<import("./__info.js").Options>} */
 export const run = async ({ folderInfo, install, updateCss, updateJavaScript, updateSvelte }) => {
-	const importVariables = '@use "src/variables.scss" as *;';
+	const importVariables = '@use "src/variables.sass" as *';
 
 	await setupStyleLanguage({
 		extension,
@@ -41,19 +41,19 @@ export const run = async ({ folderInfo, install, updateCss, updateJavaScript, up
 
 			if (preprocessorOptionsConfigObject.type !== "ObjectExpression") throw new Error("preprocessorOptions in css in Vite config must be an object");
 
-			const scssConfigObject = setDefault({
+			const sassConfigObject = setDefault({
 				object: preprocessorOptionsConfigObject,
 				default: {
 					type: "ObjectExpression",
 					properties: [],
 				},
-				property: "scss",
+				property: "sass",
 			});
 
-			if (scssConfigObject.type !== "ObjectExpression") throw new Error("scss in preprocessorOptions in css in Vite config must be an object");
+			if (sassConfigObject.type !== "ObjectExpression") throw new Error("sass in preprocessorOptions in css in Vite config must be an object");
 
 			setPropertyValue({
-				object: scssConfigObject,
+				object: sassConfigObject,
 				property: "additionalData",
 				value: {
 					type: "Literal",
