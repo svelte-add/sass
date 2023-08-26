@@ -1,4 +1,4 @@
-<h1 align="center">👓 Add (work in progress) Sass to Svelte</h1>
+<h1 align="center">👓 Add SASS to Svelte</h1>
 
 [![GitHub issues by-label](https://img.shields.io/github/issues/svelte-add/svelte-add/confirmed%20bug?color=%23DC2626)](https://github.com/svelte-add/svelte-add/issues?q=is%3Aopen+is%3Aissue+label%3A%22confirmed+bug%22)
 [![GitHub issues by-label](https://img.shields.io/github/issues/svelte-add/svelte-add/support%20question?color=%23FACC15)](https://github.com/svelte-add/svelte-add/issues?q=is%3Aopen+is%3Aissue+label%3A%22support+question%22)
@@ -21,8 +21,6 @@ This adder supports SvelteKit and Vite-powered Svelte apps (all the environments
 
 This adder doesn't take any options of its own.
 
-## 🛠 Using (work in progress) Sass
+## 🛠 Using SASS
 
-After the adder runs,
-
-- WIP
+This adder supports _pretty much_ all of [svelte-add/sass](https://github.com/svelte-add/scss) feautures, but instead of using `scss/.scss` you'd use  `sass/.sass`
