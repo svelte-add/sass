@@ -23,4 +23,4 @@ This adder doesn't take any options of its own.
 
 ## 🛠 Using SASS
 
-This adder supports _pretty much_ all of [svelte-add/sass](https://github.com/svelte-add/scss) features, but instead of using `scss/.scss` you'd use  `sass/.sass`
+This adder supports _pretty much_ all of [svelte-add/sass](https://github.com/svelte-add/scss) features, but instead of using `scss/.scss` you'd use `sass/.sass`
