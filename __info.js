@@ -1,11 +1,11 @@
 import { getViteConfigFilePath } from "../../adder-tools.js";
 import { extension } from "./stuff.js";
 
-export const name = "SCSS";
+export const name = "SASS";
 
 export const emoji = "🕶";
 
-export const usageMarkdown = ['You can write SCSS syntax in the `style lang="scss"` blocks in Svelte files.', 'You can write SCSS syntax in the `src/variables.scss` file.\n\n  Variables and mixins written here are automatically available to all other SCSS files and `style lang="scss"` blocks in Svelte files without needing to import this file.', "You can write SCSS syntax in the `src/app.scss` file.\n\n  This is your global stylesheet because it will be active on every page of your site."];
+export const usageMarkdown = ['You can write SASS syntax in the `style lang="sass"` blocks in Svelte files.', 'You can write SASS syntax in the `src/variables.sass` file.\n\n  Variables and mixins written here are automatically available to all other SASS files and `style lang="sass"` blocks in Svelte files without needing to import this file.', "You can write SASS syntax in the `src/app.sass` file.\n\n  This is your global stylesheet because it will be active on every page of your site."];
 
 /** @type {import("../..").Gatekeep} */
 export const gatekeep = async () => {
@@ -26,7 +26,7 @@ export const heuristics = [
 		},
 	},
 	{
-		description: "`vitePreprocess` is set up for SCSS in `svelte.config.js`",
+		description: "`vitePreprocess` is set up for SASS in `svelte.config.js`",
 		async detector({ readFile }) {
 			/** @param {string} text */
 			const preprocessIsProbablySetup = (text) => {
@@ -48,29 +48,29 @@ export const heuristics = [
 		},
 	},
 	{
-		description: "`src/app.scss` exists",
+		description: "`src/app.sass` exists",
 		async detector({ readFile }) {
-			const scss = await readFile({ path: "/src/app.scss" });
+			const sass = await readFile({ path: "/src/app.sass" });
 
-			return scss.exists;
+			return sass.exists;
 		},
 	},
 	{
-		description: "`src/variables.scss` exists",
+		description: "`src/variables.sass` exists",
 		async detector({ readFile }) {
-			const scss = await readFile({ path: "/src/variables.scss" });
+			const sass = await readFile({ path: "/src/variables.sass" });
 
-			return scss.exists;
+			return sass.exists;
 		},
 	},
 	{
-		description: "Vite is set up to automatically import variables.scss",
+		description: "Vite is set up to automatically import variables.sass",
 		async detector({ folderInfo, readFile }) {
 			/** @param {string} text */
 			const preprocessIsProbablySetup = (text) => {
 				if (!text.includes("additionalData")) return false;
 				if (!text.includes("@use")) return false;
-				if (!text.includes("src/variables.scss")) return false;
+				if (!text.includes("src/variables.sass")) return false;
 
 				return true;
 			};
@@ -83,7 +83,7 @@ export const heuristics = [
 		},
 	},
 	{
-		description: "The main file (`src/routes/+layout.svelte` for SvelteKit, `src/main.js` or `src/main.ts` for Vite) imports `src/app.scss`",
+		description: "The main file (`src/routes/+layout.svelte` for SvelteKit, `src/main.js` or `src/main.ts` for Vite) imports `src/app.sass`",
 		async detector({ folderInfo, readFile }) {
 			if (folderInfo.kit) {
 				const { text } = await readFile({ path: "/src/routes/+layout.svelte" });
